@@ -1,0 +1,6 @@
+# Proxy role dependencies
+---
+
+dependencies:
+  - role: apache
+  - role: zabbix-agent

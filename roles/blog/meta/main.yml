@@ -1,0 +1,6 @@
+# Blog role dependencies
+---
+
+dependencies:
+  - role: django
+  - role: zabbix-agent

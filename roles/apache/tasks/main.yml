@@ -1,0 +1,6 @@
+# Apache install and configure
+---
+
+- include: install.yml
+
+- include: configure.yml

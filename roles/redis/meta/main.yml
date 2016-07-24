@@ -1,0 +1,5 @@
+# Redis role dependencies
+---
+
+dependencies:
+  - role: zabbix-agent

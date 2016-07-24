@@ -1,0 +1,9 @@
+---
+# handlers file for zabbix-server role
+
+- name: zabbix-server restarted
+  service: name=zabbix-server state=restarted enabled=yes
+
+- name: apache restarted
+  service: name=apache2 state=restarted enabled=yes
+

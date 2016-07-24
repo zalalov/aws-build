@@ -1,0 +1,44 @@
+# Configure postgres
+---
+
+- name: "Zabbix-Server | Create database"
+  postgresql_db:
+    name: "{{ monitor.server_dbname }}"
+    state: present
+  become: yes
+  become_user: postgres
+  vars:
+    ansible_ssh_pipelining: true
+
+- name: "Zabbix-Server | Create database user"
+  postgresql_user:
+    db: "{{ monitor.server_dbname }}"
+    name: "{{ monitor.server_dbuser }}"
+    password: "{{ monitor.server_dbpassword }}"
+    priv: ALL
+    state: present
+  become: yes
+  become_user: postgres
+  vars:
+    ansible_ssh_pipelining: true
+
+- name: "PostgreSQL | Importing schema file"
+  shell: "cd /usr/share/zabbix-server-pgsql && psql -h '{{ monitor.server_dbhost }}' -U '{{ monitor.server_dbuser }}' -d '{{ monitor.server_dbname }}' -f schema.sql && touch /etc/zabbix/schema.done"
+  args:
+    creates: /etc/zabbix/schema.done
+  environment:
+    PGPASSWORD: "{{ monitor.server_dbpassword }}"
+
+- name: "PostgreSQL | Importing images file"
+  shell: "cd /usr/share/zabbix-server-pgsql && psql -h '{{ monitor.server_dbhost }}' -U '{{ monitor.server_dbuser }}' -d '{{ monitor.server_dbname }}' -f images.sql && touch /etc/zabbix/images.done"
+  args:
+    creates: /etc/zabbix/images.done
+  environment:
+    PGPASSWORD: "{{ monitor.server_dbpassword }}"
+
+- name: "PostgreSQL | Importing data file"
+  shell: "cd /usr/share/zabbix-server-pgsql && psql -h '{{ monitor.server_dbhost }}' -U '{{ monitor.server_dbuser }}' -d '{{ monitor.server_dbname }}' -f data.sql && touch /etc/zabbix/data.done"
+  args:
+    creates: /etc/zabbix/data.done
+  environment:
+    PGPASSWORD: "{{ monitor.server_dbpassword }}"

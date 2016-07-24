@@ -1,0 +1,9 @@
+# Replace default vhost
+---
+
+- name: Change default apache site
+  become: yes
+  template:
+    src: "000-default.conf.tpl"
+    dest: "/etc/apache2/sites-available/000-default.conf"
+  notify: restart apache

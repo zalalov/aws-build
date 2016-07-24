@@ -1,0 +1,16 @@
+# Apache configure task
+---
+
+- name: Disable Apache ServerSignature
+  lineinfile:
+    dest: "/etc/apache2/apache2.conf"
+    regexp: '^ServerSignature'
+    line: "ServerSignature Off"
+  notify: restart apache
+
+- name: Disable Apache ServerTokens
+  lineinfile:
+    dest: "/etc/apache2/apache2.conf"
+    regexp: '^ServerTokens'
+    line: "ServerTokens Prod"
+  notify: restart apache

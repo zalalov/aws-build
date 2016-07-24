@@ -1,0 +1,9 @@
+# Tasks for django
+---
+
+- name: Install Django
+  become: yes
+  apt:
+    pkg: python-django
+    state: latest
+    update_cache: yes

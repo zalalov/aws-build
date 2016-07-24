@@ -1,0 +1,6 @@
+# Tasks for proxy instance
+---
+
+- include: modules.yml
+
+- include: configure-vhost.yml

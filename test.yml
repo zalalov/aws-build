@@ -1,0 +1,15 @@
+---
+
+- hosts: localhost
+  gather_facts: True
+  tasks:
+    - name: get current user name
+      command: whoami
+      register: current_user
+
+- hosts: test
+  tasks:
+    - name: template
+      template:
+        src: "test.j2"
+        dest: "/tmp/test.txt"

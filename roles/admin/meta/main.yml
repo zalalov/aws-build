@@ -1,0 +1,6 @@
+# Admin role dependencies
+---
+
+dependencies:
+  - role: django
+  - role: zabbix-agent

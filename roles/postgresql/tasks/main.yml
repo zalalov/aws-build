@@ -1,0 +1,9 @@
+---
+# task file for postgresql
+
+- name: Install PostgreSQL
+  become: yes
+  apt:
+    pkg: postgresql
+    state: latest
+    update_cache: yes

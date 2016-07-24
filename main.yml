@@ -1,0 +1,44 @@
+---
+
+- hosts: localhost
+  connection: local
+  vars_files:
+    - vars/all.yml
+  roles:
+    - ec2_keypair
+    - ec2_creation
+
+- hosts: redis
+  become: yes
+  vars_files:
+    - vars/all.yml
+  roles:
+    - redis
+
+- hosts: admin
+  become: yes
+  vars_files:
+    - vars/all.yml
+  roles:
+    - admin
+
+- hosts: blog
+  become: yes
+  vars_files:
+    - vars/all.yml
+  roles:
+    - blog
+
+- hosts: proxy
+  become: yes
+  vars_files:
+    - vars/all.yml
+  roles:
+    - proxy
+
+- hosts: monitor
+  become: yes
+  vars_files:
+    - vars/all.yml
+  roles:
+    - monitor

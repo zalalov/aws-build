@@ -1,0 +1,13 @@
+# Apache install task
+---
+
+- name: Install Apache
+  become: yes
+  apt:
+    pkg: apache2
+    state: latest
+    update_cache: yes
+
+- name: Get Apache version
+  shell: apache2 -v
+  register: apache_version

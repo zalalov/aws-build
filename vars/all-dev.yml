@@ -1,0 +1,16 @@
+---
+
+proxy_ip:
+  public_ip: 52.52.27.88
+
+admin_ip:
+  public_ip: 52.52.27.104
+
+blog_ip:
+  public_ip: 52.52.27.119
+
+redis_ip:
+  public_ip: 52.52.27.114
+
+monitor_ip:
+  public_ip: 52.52.27.74

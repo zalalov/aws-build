@@ -1,0 +1,5 @@
+# Monitor role dependencies
+---
+
+dependencies:
+  - role: zabbix-server

@@ -1,0 +1,10 @@
+# main task for zabbix-server
+---
+
+- include: install.yml
+
+- include: apache-configure.yml
+
+- include: pg-configure.yml
+
+- include: zabbix-configure.yml

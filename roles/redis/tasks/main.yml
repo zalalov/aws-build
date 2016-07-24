@@ -1,0 +1,24 @@
+# Tasks for redis
+---
+
+- name: install dependencies
+  apt:
+    pkg: redis-server
+    update_cache: yes
+    cache_valid_time: 86400
+    state: build-dep
+
+- name: install redis
+  apt:
+    pkg: redis-server
+    cache_valid_time: 86400
+    state: present
+
+- name: change bind option in redis.conf
+  replace:
+    dest: /etc/redis/redis.conf
+    regexp: '^bind 127.0.0.1$'
+    replace: 'bind 0.0.0.0'
+    backup: yes
+  notify:
+    - restart redis

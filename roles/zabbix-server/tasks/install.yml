@@ -1,0 +1,42 @@
+# install task
+---
+
+- name: "Installing repository Ubuntu"
+  apt_repository:
+    repo: "deb http://repo.zabbix.com/zabbix/2.4/ubuntu/ trusty main"
+    state: present
+
+- name: "Installing repository Ubuntu"
+  apt_repository:
+    repo: "deb-src http://repo.zabbix.com/zabbix/2.4/ubuntu/ trusty main"
+    state: present
+
+- name: "Install gpg key"
+  apt_key:
+    id: 79EA5ED4
+    url: "http://repo.zabbix.com/zabbix-official-repo.key"
+
+- name: "Installing zabbix-server-pgsql"
+  apt:
+    pkg: zabbix-server-pgsql
+    state: present
+    update_cache: yes
+
+- name: "Install php5-pgsql"
+  apt:
+    pkg: php5-pgsql
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: "Install zabbix-web"
+  apt:
+    pkg: zabbix-frontend-php
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: "Ubuntu | Install Ansible module dependencies"
+  apt:
+    name: python-psycopg2
+    state: present

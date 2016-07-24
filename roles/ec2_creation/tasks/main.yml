@@ -1,0 +1,11 @@
+# ec2_creation role's main task
+---
+
+# Secure Groups
+- include: sg.yml
+
+# EC2
+- include: ec2.yml
+
+# EIP
+- include: eip.yml
