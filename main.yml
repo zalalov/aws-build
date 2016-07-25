@@ -5,8 +5,8 @@
   vars_files:
     - vars/all.yml
   roles:
-    - ec2_keypair
-    - ec2_creation
+    - aws_keypair
+    - aws_creation
 
 - hosts: redis
   become: yes

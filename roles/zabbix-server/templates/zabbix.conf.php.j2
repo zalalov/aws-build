@@ -2,18 +2,18 @@
 // Zabbix GUI configuration file
 global $DB;
 
-$DB['TYPE']     = '{{ monitor.database_type_long|upper() }}';
-$DB['SERVER']   = '{{ monitor.server_dbhost }}';
+$DB['TYPE']     = '{{ database_type_long|upper() }}';
+$DB['SERVER']   = '{{ server_dbhost }}';
 $DB['PORT']     = '0';
-$DB['DATABASE'] = '{{ monitor.server_dbname }}';
-$DB['USER']     = '{{ monitor.server_dbuser }}';
-$DB['PASSWORD'] = '{{ monitor.server_dbpassword }}';
+$DB['DATABASE'] = '{{ server_dbname }}';
+$DB['USER']     = '{{ server_dbuser }}';
+$DB['PASSWORD'] = '{{ server_dbpassword }}';
 
 // SCHEMA is relevant only for IBM_DB2 database
 $DB['SCHEMA'] = '';
 
 $ZBX_SERVER      = '{{ inventory_hostname }}';
-$ZBX_SERVER_PORT = '{{ monitor.server_listenport }}';
+$ZBX_SERVER_PORT = '{{ server_listenport }}';
 $ZBX_SERVER_NAME = '{{ inventory_hostname_short }}';
 
 $IMAGE_FORMAT_DEFAULT = IMAGE_FORMAT_PNG;
