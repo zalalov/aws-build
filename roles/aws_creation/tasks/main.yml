@@ -8,7 +8,7 @@
 - include: ec2.yml
 
 # RDS
-# - include: rds.yml
+- include: rds.yml
 
 # EIP
 - include: eip.yml
