@@ -1,0 +1,15 @@
+# RDS creation task
+
+- name: Create RDS
+  rds:
+    command: create
+    instance_name: "{{ rds.name }}"
+    db_engine: "{{ rds.engine }}"
+    size: "{{ rds.size }}"
+    instance_type: "{{ rds.instance_type }}"
+    username: "{{ rds.username }}"
+    password: "{{ rds.password }}"
+    wait: yes
+    wait_timeout: 3600
+    tags:
+      Name: "{{ rds.name }}"
