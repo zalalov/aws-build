@@ -1,4 +1,7 @@
-# Start
+### Структура стека
+![stack](/stack.png)
+
+### Start
 
 1. Set AWS Credentials as "credentials.sh" file.
 
